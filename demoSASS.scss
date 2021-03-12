@@ -1,0 +1,85 @@
+//Creating a variable
+
+$defcolor:grey;
+$font:30px;
+$fontlook:"Times New Roman", Times, serif;
+
+
+body {
+    background-color:$defcolor;
+}
+
+//Imperative Behaviour
+
+$backdrop:white;
+h1 
+{
+    color:$backdrop;
+    font-family:$fontlook;
+}
+
+// Shadowing
+
+h2
+{
+    $fontlook: 'Courier New', monospace !global;
+    font-family:$fontlook;
+}
+
+h3{
+
+    font-family:$fontlook;
+
+}
+
+// Nesting
+
+h4
+{
+    text: {
+
+        align: center;
+        shadow: 1px 3px $backdrop;
+    }
+    font: {
+        family: "Times New Roman", Times, serif;
+        size: 30px;
+        style:italic;
+      }
+    
+      // You can also Nest selectors
+}
+
+// Mixins
+@mixin amixin {
+    color: pink;
+    font-weight: bold;
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align:center;
+  }
+
+@mixin another_mixin($size) {
+    font-size:$size;
+    text-align:center;
+}
+
+#one
+{
+    @include amixin;
+}
+
+#two
+{
+    @include another_mixin(30px);
+}
+
+//Inheritance
+
+#three
+{
+    @extend #one;
+    color:honeydew;
+}
+
+//Congrats, Now you have a basic understanding of SASS. 
